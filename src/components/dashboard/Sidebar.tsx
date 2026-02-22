@@ -2,9 +2,10 @@
 
 import Link from 'next/link';
 import { useLanguage } from '@/context/LanguageContext';
-import { usePathname, useSearchParams } from 'next/navigation';
+import { usePathname, useSearchParams, useRouter } from 'next/navigation';
 import { Store, LayoutDashboard, Settings, LogOut, Plus, CreditCard, X } from 'lucide-react';
 import { Account } from '@/types';
+import { createClient } from '@/lib/supabase/client';
 
 interface SidebarProps {
     accounts?: Account[];
@@ -17,10 +18,19 @@ export default function Sidebar({ accounts, activeAccount, isOpen, onClose }: Si
     const { t } = useLanguage();
     const pathname = usePathname();
     const searchParams = useSearchParams();
+    const router = useRouter();
     const searchId = searchParams.get('id');
 
     // Priority: URL param > Prop > First Account
     const currentAccountId = searchId || activeAccount?.id || (accounts && accounts.length > 0 ? accounts[0].id : null);
+
+    const handleLogout = async () => {
+        const supabase = createClient();
+        await supabase.auth.signOut();
+        router.push('/auth');
+        router.refresh();
+    };
+
 
     return (
         <>
@@ -127,12 +137,13 @@ export default function Sidebar({ accounts, activeAccount, isOpen, onClose }: Si
                 </div>
 
                 <div className="p-4 border-t border-slate-100">
-                    <form action="/auth/signout" method="post">
-                        <button type="submit" className="flex items-center gap-2 w-full text-left px-3 py-2 text-sm font-medium text-slate-500 hover:text-red-600 hover:bg-red-50 rounded-lg transition-colors">
-                            <LogOut className="w-4 h-4" />
-                            {t.dashboard.logout}
-                        </button>
-                    </form>
+                    <button
+                        onClick={handleLogout}
+                        className="flex items-center gap-2 w-full text-left px-3 py-2 text-sm font-medium text-slate-500 hover:text-red-600 hover:bg-red-50 rounded-lg transition-colors"
+                    >
+                        <LogOut className="w-4 h-4" />
+                        {t.dashboard.logout}
+                    </button>
                 </div>
             </aside>
         </>

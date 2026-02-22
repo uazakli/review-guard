@@ -303,8 +303,51 @@ export default function Home() {
         </div>
       </section>
 
+      {/* How It Works Section */}
+      <section id="how-it-works" className="py-24 bg-[#F8FAFC]">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="text-base font-semibold text-indigo-600 uppercase tracking-wide">{t.how_label}</h2>
+            <p className="mt-2 text-3xl font-bold tracking-tight text-[#0F172A] sm:text-4xl">
+              {t.how_title}
+            </p>
+          </div>
+
+          <div className="relative">
+            {/* Connector line (desktop) */}
+            <div className="hidden md:block absolute top-16 left-1/2 -translate-x-1/2 w-[68%] h-0.5 bg-gradient-to-r from-transparent via-indigo-200 to-transparent" />
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-10 relative z-10">
+
+              {/* Step 1 */}
+              <div className="flex flex-col items-center text-center">
+                <div className="w-14 h-14 rounded-2xl bg-indigo-600 flex items-center justify-center text-white text-xl font-bold shadow-lg shadow-indigo-200 mb-6">1</div>
+                <h3 className="text-lg font-bold text-[#0F172A] mb-3">{t.how_step1_title}</h3>
+                <p className="text-slate-500 leading-relaxed text-sm">{t.how_step1_desc}</p>
+              </div>
+
+              {/* Step 2 */}
+              <div className="flex flex-col items-center text-center">
+                <div className="w-14 h-14 rounded-2xl bg-indigo-600 flex items-center justify-center text-white text-xl font-bold shadow-lg shadow-indigo-200 mb-6">2</div>
+                <h3 className="text-lg font-bold text-[#0F172A] mb-3">{t.how_step2_title}</h3>
+                <p className="text-slate-500 leading-relaxed text-sm">{t.how_step2_desc}</p>
+              </div>
+
+              {/* Step 3 */}
+              <div className="flex flex-col items-center text-center">
+                <div className="w-14 h-14 rounded-2xl bg-indigo-600 flex items-center justify-center text-white text-xl font-bold shadow-lg shadow-indigo-200 mb-6">3</div>
+                <h3 className="text-lg font-bold text-[#0F172A] mb-3">{t.how_step3_title}</h3>
+                <p className="text-slate-500 leading-relaxed text-sm">{t.how_step3_desc}</p>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Pricing Section */}
       <PricingSection />
+
 
       {/* Demo Section (Conditional) */}
       {(selectedPlace || loadingDetails) && (

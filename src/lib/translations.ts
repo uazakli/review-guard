@@ -159,6 +159,14 @@ export const translations = {
             plan_feature_api: "API Erişimi & White-label",
             footer_rights: "Tüm hakları saklıdır.",
             footer_privacy: "Gizlilik Politikası",
+            how_label: "Nasıl Çalışır?",
+            how_title: "3 Adımda Başlayın",
+            how_step1_title: "İşletmenizi Bağlayın",
+            how_step1_desc: "Google My Business hesabınızı birkaç saniye içinde platforma ekleyin.",
+            how_step2_title: "AI Sizi Dinlesin",
+            how_step2_desc: "Yapay zeka yorumları analiz eder, marka sesinizi öğrenir ve yanıtları hazırlar.",
+            how_step3_title: "Otopilota Alın",
+            how_step3_desc: "Onaylayın ya da tamamen otomatiğe alın. SEO sıranız ve itibarınız otomatik yükselir.",
         }
     },
     en: {
@@ -320,6 +328,14 @@ export const translations = {
             plan_feature_api: "API Access & White-label",
             footer_rights: "All rights reserved.",
             footer_privacy: "Privacy Policy",
+            how_label: "How It Works",
+            how_title: "Get Started in 3 Steps",
+            how_step1_title: "Connect Your Business",
+            how_step1_desc: "Add your Google My Business account to the platform in seconds.",
+            how_step2_title: "Let AI Listen",
+            how_step2_desc: "AI analyzes reviews, learns your brand voice, and prepares personalized replies.",
+            how_step3_title: "Go Autopilot",
+            how_step3_desc: "Approve or fully automate. Your SEO ranking and reputation grow automatically.",
         }
     },
     es: {
@@ -481,6 +497,14 @@ export const translations = {
             plan_feature_api: "Acceso API y White-label",
             footer_rights: "Todos los derechos reservados.",
             footer_privacy: "Política de Privacidad",
+            how_label: "Cómo Funciona",
+            how_title: "Empieza en 3 Pasos",
+            how_step1_title: "Conecta tu Negocio",
+            how_step1_desc: "Añade tu cuenta de Google My Business a la plataforma en segundos.",
+            how_step2_title: "Deja que la IA Escuche",
+            how_step2_desc: "La IA analiza las reseñas, aprende tu voz de marca y prepara respuestas personalizadas.",
+            how_step3_title: "Activa el Piloto Automático",
+            how_step3_desc: "Aprueba o automatiza completamente. Tu posición SEO y reputación crecen automáticamente.",
         }
     },
     zh: {
@@ -642,6 +666,14 @@ export const translations = {
             plan_feature_api: "API访问和白标",
             footer_rights: "版权所有。",
             footer_privacy: "隐私政策",
+            how_label: "如何运作",
+            how_title: "3步开始",
+            how_step1_title: "连接您的业务",
+            how_step1_desc: "在几秒钟内将您的Google My Business账户添加到平台。",
+            how_step2_title: "让AI倾听",
+            how_step2_desc: "AI分析评论，学习您的品牌声音，并准备个性化回复。",
+            how_step3_title: "开启自动驾驶",
+            how_step3_desc: "批准或完全自动化。您的SEO排名和声誉自动提升。",
         }
     },
     ar: {
@@ -803,6 +835,14 @@ export const translations = {
             plan_feature_api: "وصول API والعلامة البيضاء",
             footer_rights: "جميع الحقوق محفوظة.",
             footer_privacy: "سياسة الخصوصية",
+            how_label: "كيف يعمل",
+            how_title: "ابدأ في 3 خطوات",
+            how_step1_title: "اربط نشاطك التجاري",
+            how_step1_desc: "أضف حساب Google My Business الخاص بك إلى المنصة في ثوانٍ.",
+            how_step2_title: "دع الذكاء الاصطناعي يستمع",
+            how_step2_desc: "يحلل الذكاء الاصطناعي المراجعات، ويتعلم صوت علامتك التجارية، ويعد ردوداً مخصصة.",
+            how_step3_title: "فعّل الطيار الآلي",
+            how_step3_desc: "وافق أو قم بالأتمتة الكاملة. ترتيب SEO وسمعتك يرتفعان تلقائياً.",
         }
     },
     de: {
@@ -964,6 +1004,14 @@ export const translations = {
             plan_feature_api: "API-Zugang & White-label",
             footer_rights: "Alle Rechte vorbehalten.",
             footer_privacy: "Datenschutzrichtlinie",
+            how_label: "So funktioniert es",
+            how_title: "In 3 Schritten starten",
+            how_step1_title: "Verbinde dein Unternehmen",
+            how_step1_desc: "Füge dein Google My Business-Konto in Sekunden zur Plattform hinzu.",
+            how_step2_title: "Lass die KI zuhören",
+            how_step2_desc: "Die KI analysiert Bewertungen, lernt deine Markenstimme und bereitet personalisierte Antworten vor.",
+            how_step3_title: "Autopilot aktivieren",
+            how_step3_desc: "Genehmige oder vollautomatisiere. Dein SEO-Ranking und dein Ruf steigen automatisch.",
         }
     },
     fr: {
@@ -1125,6 +1173,14 @@ export const translations = {
             plan_feature_api: "Accès API & White-label",
             footer_rights: "Tous droits réservés.",
             footer_privacy: "Politique de Confidentialité",
+            how_label: "Comment ça marche",
+            how_title: "Démarrez en 3 étapes",
+            how_step1_title: "Connectez votre entreprise",
+            how_step1_desc: "Ajoutez votre compte Google My Business à la plateforme en quelques secondes.",
+            how_step2_title: "Laissez l'IA écouter",
+            how_step2_desc: "L'IA analyse les avis, apprend votre ton de marque et prépare des réponses personnalisées.",
+            how_step3_title: "Activez le pilote automatique",
+            how_step3_desc: "Approuvez ou automatisez entièrement. Votre classement SEO et votre réputation augmentent automatiquement.",
         }
     },
     ru: {
@@ -1286,6 +1342,14 @@ export const translations = {
             plan_feature_api: "Доступ API & White-label",
             footer_rights: "Все права защищены.",
             footer_privacy: "Политика Конфиденциальности",
+            how_label: "Как это работает",
+            how_title: "Начните за 3 шага",
+            how_step1_title: "Подключите ваш бизнес",
+            how_step1_desc: "Добавьте свой аккаунт Google My Business на платформу за несколько секунд.",
+            how_step2_title: "Пусть ИИ слушает",
+            how_step2_desc: "ИИ анализирует отзывы, изучает голос вашего бренда и готовит персонализированные ответы.",
+            how_step3_title: "Включите автопилот",
+            how_step3_desc: "Утверждайте или полностью автоматизируйте. Ваш SEO-рейтинг и репутация растут автоматически.",
         }
     }
 };
