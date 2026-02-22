@@ -55,7 +55,7 @@ export default function BusinessSearch({ onSelect }: BusinessSearchProps) {
                     type="text"
                     value={query}
                     onChange={(e) => setQuery(e.target.value)}
-                    placeholder="İşletme adını girin (Örn: Hacı Baba Restoran)"
+                    placeholder="İşletme adını girin..."
                     className="w-full h-14 pl-12 pr-[90px] rounded-xl border border-gray-200 shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all text-base"
                 />
                 <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 w-6 h-6" />

@@ -58,26 +58,34 @@ export default function Home() {
     <main className="min-h-screen bg-[#F8FAFC] text-[#0F172A] selection:bg-indigo-100 selection:text-indigo-900 font-sans">
 
       {/* Navbar */}
-      <nav className="fixed top-0 left-0 w-full z-50 bg-[#F8FAFC]/80 backdrop-blur-md border-b border-slate-200">
-        <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-          <div className="flex items-center gap-2 font-bold text-xl tracking-tight text-[#0F172A]">
-            <div className="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center text-white">
-              <ShieldCheck className="w-5 h-5" />
+      <nav className="fixed top-0 left-0 w-full z-50 bg-[#F8FAFC]/90 backdrop-blur-md border-b border-slate-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 h-14 sm:h-16 flex items-center justify-between gap-2">
+
+          {/* Logo */}
+          <div className="flex items-center gap-1.5 sm:gap-2 font-bold tracking-tight text-[#0F172A] shrink-0">
+            <div className="w-7 h-7 sm:w-8 sm:h-8 bg-indigo-600 rounded-lg flex items-center justify-center text-white">
+              <ShieldCheck className="w-4 h-4 sm:w-5 sm:h-5" />
             </div>
-            <span>ReviewGuard</span>
+            <span className="text-base sm:text-xl">ReviewGuard</span>
           </div>
-          <div className="hidden md:flex gap-8 text-sm font-medium text-slate-600">
+
+          {/* Desktop Nav Links */}
+          <div className="hidden md:flex gap-6 text-sm font-medium text-slate-600">
             <a href="#features" className="hover:text-indigo-600 transition">Özellikler</a>
             <a href="#how-it-works" className="hover:text-indigo-600 transition">Nasıl Çalışır?</a>
             <a href="#pricing" className="hover:text-indigo-600 transition">Fiyatlandırma</a>
           </div>
-          <div className="flex gap-2 sm:gap-4 items-center">
+
+          {/* Right side */}
+          <div className="flex items-center gap-1.5 sm:gap-3 shrink-0">
             <LanguageSelector />
-            <Link href="/auth" className="hidden sm:block text-sm font-medium text-slate-600 hover:text-[#0F172A]">Giriş Yap</Link>
-            <Link href="/auth" className="text-xs sm:text-sm font-medium text-white bg-indigo-600 px-3 sm:px-4 py-2 rounded-lg hover:bg-indigo-700 transition shadow-sm hover:shadow-md whitespace-nowrap">
-              Ücretsiz Dene
+            <Link href="/auth" className="hidden sm:block text-sm font-medium text-slate-600 hover:text-[#0F172A] whitespace-nowrap">Giriş Yap</Link>
+            <Link href="/auth" className="text-xs sm:text-sm font-medium text-white bg-indigo-600 px-2.5 sm:px-4 py-1.5 sm:py-2 rounded-lg hover:bg-indigo-700 transition shadow-sm whitespace-nowrap">
+              <span className="sm:hidden">Dene</span>
+              <span className="hidden sm:inline">Ücretsiz Dene</span>
             </Link>
           </div>
+
         </div>
       </nav>
 
