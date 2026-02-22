@@ -1,0 +1,101 @@
+﻿
+> review-guard@0.1.0 lint
+> eslint
+
+
+D:\Fikirler\Review Guard\review-guard\src\app\api\accounts\connect\route.ts
+  51:33  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  71:21  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+D:\Fikirler\Review Guard\review-guard\src\app\api\debug\gemini\route.ts
+  44:21  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+D:\Fikirler\Review Guard\review-guard\src\app\api\debug\models\route.ts
+  21:21  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+D:\Fikirler\Review Guard\review-guard\src\app\api\generate-reply\route.ts
+  56:27  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  74:21  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+D:\Fikirler\Review Guard\review-guard\src\app\api\google\locations\route.ts
+  65:21  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+D:\Fikirler\Review Guard\review-guard\src\app\api\reviews\update\route.ts
+  23:25  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  54:21  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+D:\Fikirler\Review Guard\review-guard\src\app\dashboard\DashboardClient.tsx
+   14:4   error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   67:35  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   78:64  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   89:57  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  157:49  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+D:\Fikirler\Review Guard\review-guard\src\app\dashboard\settings\SettingsClient.tsx
+  10:14  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+D:\Fikirler\Review Guard\review-guard\src\app\page.tsx
+  11:54  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  12:42  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  15:43  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+D:\Fikirler\Review Guard\review-guard\src\components\auth\AuthForm.tsx
+  43:23  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  65:23  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+D:\Fikirler\Review Guard\review-guard\src\components\dashboard\ConnectGoogleBusiness.tsx
+   5:10  warning  'Loader2' is defined but never used                                                                                          @typescript-eslint/no-unused-vars
+  11:16  error    Unexpected any. Specify a different type                                                                                     @typescript-eslint/no-explicit-any
+  25:8   warning  React Hook useEffect has a missing dependency: 'fetchExistingConnections'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  52:23  error    Unexpected any. Specify a different type                                                                                     @typescript-eslint/no-explicit-any
+  76:23  error    Unexpected any. Specify a different type                                                                                     @typescript-eslint/no-explicit-any
+
+D:\Fikirler\Review Guard\review-guard\src\components\dashboard\LanguageSelector.tsx
+  61:58  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+D:\Fikirler\Review Guard\review-guard\src\components\dashboard\ReviewCard.tsx
+  72:25  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+D:\Fikirler\Review Guard\review-guard\src\components\dashboard\ReviewList.tsx
+  5:60  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+D:\Fikirler\Review Guard\review-guard\src\components\dashboard\Sidebar.tsx
+   8:74  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   8:97  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  72:57  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+D:\Fikirler\Review Guard\review-guard\src\components\landing\AIDemo.tsx
+  19:34  warning  'businessName' is defined but never used                                                                             @typescript-eslint/no-unused-vars
+  57:25  error    Unexpected any. Specify a different type                                                                             @typescript-eslint/no-explicit-any
+  59:13  error    Use "@ts-expect-error" instead of "@ts-ignore", as "@ts-ignore" will do nothing if the following line is error-free  @typescript-eslint/ban-ts-comment
+
+D:\Fikirler\Review Guard\review-guard\src\components\landing\BusinessSearch.tsx
+  44:23  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+D:\Fikirler\Review Guard\review-guard\src\components\ui\container-scroll-animation.tsx
+  12:33  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  57:55  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+D:\Fikirler\Review Guard\review-guard\src\context\LanguageContext.tsx
+  21:13  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+D:\Fikirler\Review Guard\review-guard\src\context\LanguageContext.tsx:21:13
+  19 |         const savedLang = localStorage.getItem('review-guard-lang') as Language;
+  20 |         if (savedLang && (savedLang === 'tr' || savedLang === 'en')) {
+> 21 |             setLanguage((prev) => (prev !== savedLang ? savedLang : prev));
+     |             ^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  22 |         }
+  23 |     }, []);
+  24 |  react-hooks/set-state-in-effect
+
+D:\Fikirler\Review Guard\review-guard\verify_fix.js
+  1:15  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+Ô£û 39 problems (36 errors, 3 warnings)
+
