@@ -18,11 +18,11 @@ export async function GET() {
         const data = await response.json();
 
         return NextResponse.json(data);
-    } catch (error: any) {
+    } catch (error) {
         console.error('Error listing models:', error);
         return NextResponse.json({
             error: 'Failed to list models',
-            details: error.message || error.toString()
+            details: error instanceof Error ? error.message : String(error)
         }, { status: 500 });
     }
 }

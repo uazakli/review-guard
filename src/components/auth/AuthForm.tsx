@@ -40,8 +40,8 @@ export default function AuthForm() {
                 router.refresh()
                 router.push('/dashboard')
             }
-        } catch (err: any) {
-            setError(err.message)
+        } catch (err) {
+            setError(err instanceof Error ? err.message : 'Bir hata oluştu.')
         } finally {
             setIsLoading(false)
         }
@@ -62,8 +62,8 @@ export default function AuthForm() {
                 },
             })
             if (error) throw error
-        } catch (err: any) {
-            setError(err.message)
+        } catch (err) {
+            setError(err instanceof Error ? err.message : 'Bir hata oluştu.')
             setIsLoading(false)
         }
     }

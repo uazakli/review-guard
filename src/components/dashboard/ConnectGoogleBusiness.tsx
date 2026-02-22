@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { createClient } from '@/lib/supabase/client';
 import { Loader2, MapPin } from 'lucide-react';
 
@@ -8,7 +8,7 @@ interface Location {
     name: string; // "accounts/X/locations/Y"
     title: string;
     storeCode?: string;
-    metadata?: any;
+    metadata?: Record<string, unknown>;
 }
 
 export default function ConnectGoogleBusiness() {
@@ -19,12 +19,7 @@ export default function ConnectGoogleBusiness() {
     const [existingConnections, setExistingConnections] = useState<Set<string>>(new Set());
     const supabase = createClient();
 
-    useEffect(() => {
-        setError(null);
-        fetchExistingConnections();
-    }, []);
-
-    const fetchExistingConnections = async () => {
+    const fetchExistingConnections = useCallback(async () => {
         const { data: { user } } = await supabase.auth.getUser();
         if (!user) return;
 
@@ -36,7 +31,12 @@ export default function ConnectGoogleBusiness() {
         if (data) {
             setExistingConnections(new Set(data.map(d => d.google_location_id).filter(Boolean) as string[]));
         }
-    };
+    }, [supabase]);
+
+    useEffect(() => {
+        setError(null);
+        fetchExistingConnections();
+    }, [fetchExistingConnections]);
 
     const fetchLocations = async () => {
         setLoading(true);
@@ -49,8 +49,8 @@ export default function ConnectGoogleBusiness() {
             }
             const data = await res.json();
             setLocations(data.locations);
-        } catch (err: any) {
-            setError(err.message);
+        } catch (err) {
+            setError(err instanceof Error ? err.message : 'Unknown error');
         } finally {
             setLoading(false);
         }
@@ -73,8 +73,8 @@ export default function ConnectGoogleBusiness() {
             // Redirect to dashboard after brief delay
             window.location.href = '/dashboard';
 
-        } catch (err: any) {
-            alert("Bağlantı hatası: " + err.message);
+        } catch (err) {
+            alert("Bağlantı hatası: " + (err instanceof Error ? err.message : 'Unknown error'));
         }
     };
 

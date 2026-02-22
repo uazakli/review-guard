@@ -61,9 +61,10 @@ export async function POST(request: Request) {
 
                 if (replyText) break; // Success!
 
-            } catch (err: any) {
-                console.warn(`Model ${modelName} failed:`, err.message);
-                errorDetails += `[${modelName}: ${err.message}] `;
+            } catch (err) {
+                const errorMessage = err instanceof Error ? err.message : 'Unknown error';
+                console.warn(`Model ${modelName} failed:`, errorMessage);
+                errorDetails += `[${modelName}: ${errorMessage}] `;
                 continue; // Try next model
             }
         }
@@ -79,11 +80,11 @@ export async function POST(request: Request) {
 
         return NextResponse.json({ reply: replyText });
 
-    } catch (error: any) {
+    } catch (error) {
         console.error('Critical Error in generate-reply:', error);
         return NextResponse.json({
             error: 'Failed to generate reply (System Error)',
-            details: error.message
+            details: error instanceof Error ? error.message : 'Unknown error'
         }, { status: 500 });
     }
 }

@@ -65,8 +65,6 @@ export default async function DashboardPage({
 
     return (
         <DashboardClient
-
-            accounts={accounts || []}
             activeAccount={activeAccount}
             reviews={reviews || []}
         />

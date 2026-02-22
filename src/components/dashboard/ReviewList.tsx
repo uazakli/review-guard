@@ -1,8 +1,9 @@
 'use client';
 
+import { Review } from '@/types';
 import ReviewCard from './ReviewCard';
 
-export default function ReviewList({ reviews }: { reviews: any[] }) {
+export default function ReviewList({ reviews }: { reviews: Review[] }) {
     if (reviews.length === 0) {
         return (
             <div className="text-center py-12 bg-white rounded-xl border border-gray-100">

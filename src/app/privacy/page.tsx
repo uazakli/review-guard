@@ -19,7 +19,7 @@ export default function PrivacyPolicy() {
 
                     <h2 className="text-2xl font-bold text-slate-900 mt-8 mb-4">1. Giriş</h2>
                     <p>
-                        Review Guard ("biz", "bizim"), kullanıcılarımızın gizliliğini korumayı taahhüt eder.
+                        Review Guard (&quot;biz&quot;, &quot;bizim&quot;), kullanıcılarımızın gizliliğini korumayı taahhüt eder.
                         Bu Gizlilik Politikası, hizmetlerimizi kullandığınızda topladığımız, kullandığımız ve paylaştığımız bilgileri açıklar.
                     </p>
 
@@ -35,7 +35,7 @@ export default function PrivacyPolicy() {
 
                     <h2 className="text-2xl font-bold text-slate-900 mt-8 mb-4">3. Google Kullanıcı Verileri Politikası</h2>
                     <p className="bg-blue-50 p-4 rounded-lg border border-blue-100 text-blue-900 font-medium">
-                        Uygulamamız, Google API Hizmetleri Kullanıcı Verileri Politikası'na tam uyum sağlar.
+                        Uygulamamız, Google API Hizmetleri Kullanıcı Verileri Politikası&apos;na tam uyum sağlar.
                         Google hesaplarınızdan elde edilen bilgiler, yalnızca uygulamanın temel işlevlerini (yorumları görüntüleme ve yanıtlama)
                         sağlamak amacıyla kullanılır. Bu veriler, reklam amaçlı kullanılmaz ve kullanıcının açık rızası olmadan
                         hiçbir üçüncü taraf ile paylaşılmaz.

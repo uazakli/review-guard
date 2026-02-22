@@ -43,18 +43,19 @@ export async function GET() {
             locations: locations
         });
 
-    } catch (error: any) {
+    } catch (error) {
         console.error('Error fetching Google locations:', error);
 
+        const errorMessage = error instanceof Error ? error.message : 'Unknown error';
 
         // Handle specific API errors
-        if (error.message.includes('401') || error.message.includes('UNAUTHENTICATED')) {
+        if (errorMessage.includes('401') || errorMessage.includes('UNAUTHENTICATED')) {
             return NextResponse.json({
                 error: 'Google oturum süresi doldu. Lütfen çıkış yapıp tekrar giriş yapın.'
             }, { status: 401 });
         }
 
-        if (error.message.includes('429') || error.message.includes('RESOURCE_EXHAUSTED') || error.message.includes('QUOTA_EXCEEDED')) {
+        if (errorMessage.includes('429') || errorMessage.includes('RESOURCE_EXHAUSTED') || errorMessage.includes('QUOTA_EXCEEDED')) {
             return NextResponse.json({
                 error: 'Google API istek limiti aşıldı (Kota Doldu). Lütfen daha sonra tekrar deneyin veya geliştirici ile iletişime geçin.',
                 details: 'Google My Business API Quota Exceeded. This is likely due to the "Requests per minute" limit being 0 for unverified projects.'
@@ -63,7 +64,7 @@ export async function GET() {
 
         return NextResponse.json({
             error: 'Google verileri alınamadı.',
-            details: error.message
+            details: errorMessage
         }, { status: 500 });
     }
 }

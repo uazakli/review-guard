@@ -20,7 +20,7 @@ export async function POST(req: Request) {
         }
 
         // Prepare update data
-        let updateData: any = {};
+        let updateData: Record<string, unknown> = {};
 
         if (action === 'approve') {
             updateData = {
@@ -51,11 +51,11 @@ export async function POST(req: Request) {
 
         return NextResponse.json({ success: true });
 
-    } catch (error: any) {
+    } catch (error) {
         console.error('Error updating review:', error);
         return NextResponse.json({
             error: 'Failed to update review',
-            details: error.message
+            details: error instanceof Error ? error.message : 'Unknown error'
         }, { status: 500 });
     }
 }

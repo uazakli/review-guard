@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from 'react';
 import { useLanguage } from '@/context/LanguageContext';
+import { Language } from '@/lib/translations';
 import { ChevronDown } from 'lucide-react';
 import Image from 'next/image';
 
@@ -58,7 +59,7 @@ export default function LanguageSelector() {
                         <button
                             key={lang.code}
                             onClick={() => {
-                                setLanguage(lang.code as any);
+                                setLanguage(lang.code as Language);
                                 setIsOpen(false);
                             }}
                             className={`w-full flex items-center gap-3 px-3 py-2 text-xs font-medium transition-colors ${language === lang.code ? 'bg-indigo-50 text-indigo-700' : 'text-slate-700 hover:bg-slate-50'

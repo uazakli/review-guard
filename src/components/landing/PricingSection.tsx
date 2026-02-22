@@ -1,6 +1,6 @@
 'use client';
 
-import { Check, Loader2 } from 'lucide-react';
+import { Check } from 'lucide-react';
 import Link from 'next/link';
 
 export default function PricingSection() {
@@ -58,7 +58,7 @@ export default function PricingSection() {
                     </div>
 
                     {/* PATRON PAKETİ (Pro) - Highlight */}
-                    <div className="relative rounded-3xl border-2 border-indigo-500 bg-white p-8 shadow-xl scale-105 z-10">
+                    <div className="relative rounded-3xl border-2 border-indigo-500 bg-white p-8 shadow-xl md:scale-105 z-10">
                         <div className="absolute -top-5 left-0 right-0 mx-auto w-32 rounded-full bg-gradient-to-r from-indigo-600 to-violet-600 px-3 py-1 text-center text-xs font-semibold text-white uppercase tracking-wide shadow-md">
                             En Popüler
                         </div>

@@ -7,8 +7,10 @@ import { Bell, CreditCard, Building, MessageSquare, Save, Loader2 } from 'lucide
 import LanguageSelector from '@/components/dashboard/LanguageSelector';
 import { updateAccountSettings } from '@/app/actions/settings';
 
+import { Account } from '@/types';
+
 interface SettingsClientProps {
-    account: any;
+    account: Account;
 }
 
 export default function SettingsClient({ account }: SettingsClientProps) {

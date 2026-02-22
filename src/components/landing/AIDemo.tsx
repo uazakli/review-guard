@@ -4,12 +4,7 @@ import { useState } from 'react';
 import { Sparkles, RefreshCw, Copy } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
-interface Review {
-    author_name: string;
-    rating: number;
-    text: string;
-    relative_time_description: string;
-}
+import { Review } from '@/types';
 
 interface AIDemoProps {
     businessName: string;
@@ -54,9 +49,9 @@ export default function AIDemo({ reviews }: AIDemoProps) {
             if (data.reply) {
                 setGeneratedReply(data.reply);
             }
-        } catch (error: any) {
+        } catch (error) {
             console.error('Failed to generate reply:', error);
-            // @ts-ignore
+            // @ts-expect-error - error might not have message property
             setGeneratedReply('Hata: ' + (error.message || 'Bilinmeyen bir hata oluştu.'));
         } finally {
             setLoading(false);

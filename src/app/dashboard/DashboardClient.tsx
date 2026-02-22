@@ -9,13 +9,11 @@ import { useLanguage } from '@/context/LanguageContext';
 import { Account, Review } from '@/types';
 
 interface DashboardClientProps {
-    accounts: Account[];
     activeAccount: Account;
     reviews: Review[];
 }
 
 export default function DashboardClient({
-    accounts,
     activeAccount,
     reviews,
 }: DashboardClientProps) {

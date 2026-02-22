@@ -10,9 +10,6 @@ export default async function BillingPage() {
         redirect('/login');
     }
 
-    // Fetch accounts for sidebar
-    const { data: accounts } = await supabase.from('accounts').select('*');
-
     return (
         <div className="p-8 lg:p-12">
             <div className="max-w-5xl mx-auto space-y-8">

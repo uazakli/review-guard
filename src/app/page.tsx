@@ -6,14 +6,23 @@ import BusinessSearch from '@/components/landing/BusinessSearch';
 import AIDemo from '@/components/landing/AIDemo';
 import PricingSection from '@/components/landing/PricingSection';
 import LanguageSelector from '@/components/dashboard/LanguageSelector';
+import { Review } from '@/types';
 import { Loader2, ShieldCheck, Zap, TrendingUp, Globe, Star } from 'lucide-react';
 
+interface Place {
+  place_id: string;
+  name: string;
+  formatted_address: string;
+  rating: number;
+  user_ratings_total: number;
+}
+
 export default function Home() {
-  const [selectedPlace, setSelectedPlace] = useState<any>(null);
-  const [reviews, setReviews] = useState<any[]>([]);
+  const [selectedPlace, setSelectedPlace] = useState<Place | null>(null);
+  const [reviews, setReviews] = useState<Review[]>([]);
   const [loadingDetails, setLoadingDetails] = useState(false);
 
-  const handlePlaceSelect = async (place: any) => {
+  const handlePlaceSelect = async (place: Place) => {
     setSelectedPlace(place);
     setLoadingDetails(true);
 
@@ -62,10 +71,10 @@ export default function Home() {
             <a href="#how-it-works" className="hover:text-indigo-600 transition">Nasıl Çalışır?</a>
             <a href="#pricing" className="hover:text-indigo-600 transition">Fiyatlandırma</a>
           </div>
-          <div className="flex gap-4 items-center">
+          <div className="flex gap-2 sm:gap-4 items-center">
             <LanguageSelector />
-            <Link href="/auth" className="text-sm font-medium text-slate-600 hover:text-[#0F172A]">Giriş Yap</Link>
-            <Link href="/auth" className="text-sm font-medium text-white bg-indigo-600 px-4 py-2 rounded-lg hover:bg-indigo-700 transition shadow-sm hover:shadow-md">
+            <Link href="/auth" className="hidden sm:block text-sm font-medium text-slate-600 hover:text-[#0F172A]">Giriş Yap</Link>
+            <Link href="/auth" className="text-xs sm:text-sm font-medium text-white bg-indigo-600 px-3 sm:px-4 py-2 rounded-lg hover:bg-indigo-700 transition shadow-sm hover:shadow-md whitespace-nowrap">
               Ücretsiz Dene
             </Link>
           </div>
@@ -73,7 +82,7 @@ export default function Home() {
       </nav>
 
       {/* Hero Section (Split Screen) */}
-      <section className="pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+      <section className="pt-24 pb-16 lg:pt-48 lg:pb-32 overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
 
@@ -107,7 +116,7 @@ export default function Home() {
               </div>
 
               {/* Trust Badges */}
-              <div className="flex items-center gap-4 text-sm text-slate-500">
+              <div className="flex flex-wrap items-center gap-4 text-sm text-slate-500">
                 <div className="flex -space-x-1">
                   {[1, 2, 3, 4, 5].map((_, i) => (
                     <div key={i} className="w-8 h-8 rounded-full bg-[#0F172A] border-2 border-white flex items-center justify-center text-xs text-white font-bold">
@@ -274,7 +283,7 @@ export default function Home() {
                   Turistlerin dilinden konuşun. İngilizce, Arapça, Rusça veya Çince gelen yorumlara, kendi dillerinde mükemmel gramerle yanıt verin.
                 </p>
               </div>
-              <div className="flex-1 flex gap-4">
+              <div className="flex-1 flex flex-wrap gap-3">
                 <div className="bg-white px-4 py-2 rounded-lg shadow-sm border border-slate-200 text-sm font-medium text-slate-600">🇹🇷 Merhaba</div>
                 <div className="bg-white px-4 py-2 rounded-lg shadow-sm border border-slate-200 text-sm font-medium text-slate-600">🇬🇧 Hello</div>
                 <div className="bg-white px-4 py-2 rounded-lg shadow-sm border border-slate-200 text-sm font-medium text-slate-600">🇸🇦 Marhaba</div>
@@ -293,7 +302,7 @@ export default function Home() {
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold text-white">
-                {loadingDetails ? 'İşletme Analiz Ediliyor...' : selectedPlace.name}
+                {loadingDetails ? 'İşletme Analiz Ediliyor...' : selectedPlace?.name}
               </h2>
               {!loadingDetails && (
                 <p className="text-slate-400 mt-3 text-lg">
@@ -309,7 +318,7 @@ export default function Home() {
               </div>
             ) : (
               <div className="bg-slate-800 rounded-2xl shadow-2xl border border-slate-700 overflow-hidden">
-                <AIDemo businessName={selectedPlace.name} reviews={reviews} />
+                <AIDemo businessName={selectedPlace?.name || ''} reviews={reviews} />
               </div>
             )}
           </div>

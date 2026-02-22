@@ -5,16 +5,7 @@ import { Star, Sparkles, Check, ThumbsDown, RefreshCw } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useLanguage } from '@/context/LanguageContext'; // Assuming you have this from previous steps
 
-interface Review {
-    id: string;
-    reviewer_name: string;
-    star_rating: number;
-    comment: string;
-    review_date: string;
-    reply_status: 'pending' | 'approved' | 'rejected' | 'published';
-    generated_reply?: string;
-}
-
+import { Review } from '@/types';
 import { createClient } from '@/lib/supabase/client';
 
 export default function ReviewCard({ review }: { review: Review }) {
@@ -69,9 +60,9 @@ export default function ReviewCard({ review }: { review: Review }) {
                 setHasRegenerated(true);
             }
 
-        } catch (error: any) {
+        } catch (error) {
             console.error(error);
-            alert(`Hata: ${error.message || "Bilinmeyen bir hata oluştu"}`);
+            alert(`Hata: ${error instanceof Error ? error.message : "Bilinmeyen bir hata oluştu"}`);
         } finally {
             setIsGenerating(false);
         }

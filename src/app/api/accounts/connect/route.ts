@@ -48,7 +48,7 @@ export async function POST(req: Request) {
             'Ortalama bir mekan, ne iyi ne kötü.'
         ];
 
-        const getRandom = (arr: any[]) => arr[Math.floor(Math.random() * arr.length)];
+        const getRandom = <T,>(arr: T[]): T => arr[Math.floor(Math.random() * arr.length)];
 
         const mockReviews = Array.from({ length: 3 }).map((_, i) => ({
             account_id: account.id,
@@ -68,11 +68,11 @@ export async function POST(req: Request) {
 
         return NextResponse.json({ success: true });
 
-    } catch (error: any) {
+    } catch (error) {
         console.error('Error connecting account:', error);
         return NextResponse.json({
             error: 'Failed to connect account',
-            details: error.message
+            details: error instanceof Error ? error.message : 'Unknown error'
         }, { status: 500 });
     }
 }

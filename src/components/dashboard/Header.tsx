@@ -1,16 +1,13 @@
 'use client';
 
 import { Menu, User } from 'lucide-react';
-import { useLanguage } from '@/context/LanguageContext';
 
 interface HeaderProps {
     onOpenSidebar: () => void;
     userEmail?: string;
 }
 
-export default function Header({ onOpenSidebar, userEmail }: HeaderProps) {
-    const { t } = useLanguage();
-
+export default function Header({ onOpenSidebar }: HeaderProps) {
     return (
         <header className="bg-white border-b border-slate-200 h-16 px-4 flex items-center justify-between lg:hidden sticky top-0 z-20">
             <button

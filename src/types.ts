@@ -4,7 +4,9 @@ export interface Account {
     business_name: string;
     user_id: string;
     place_id: string;
-    // Add other fields as needed based on Supabase schema
+    auto_reply_enabled?: boolean;
+    min_star_rating?: number;
+    publication_mode?: 'manual' | 'semi' | 'automated';
 }
 
 export interface Review {
@@ -24,7 +26,10 @@ export interface Review {
     time: number;
     translated: boolean;
     review_date: string; // ISO date string
-    reply_status: 'published' | 'draft' | 'pending';
+    reviewer_name?: string;
+    comment?: string;
+    generated_reply?: string;
+    reply_status: 'published' | 'draft' | 'pending' | 'rejected' | 'approved';
     reply_text?: string;
 }
 

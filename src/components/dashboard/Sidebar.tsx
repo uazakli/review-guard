@@ -100,7 +100,7 @@ export default function Sidebar({ accounts, activeAccount, isOpen, onClose }: Si
                             {t.dashboard.businesses}
                         </h2>
                         <div className="space-y-1">
-                            {accounts && accounts.map((acc: any) => (
+                            {accounts && accounts.map((acc: Account) => (
                                 <Link
                                     key={acc.id}
                                     href={`/dashboard?id=${acc.id}`}
