@@ -2,7 +2,8 @@
 
 import { useState } from 'react';
 import { Search, MapPin, Star, Loader2 } from 'lucide-react';
-
+import { useLanguage } from '@/context/LanguageContext';
+import { translations } from '@/lib/translations';
 
 interface Place {
     place_id: string;
@@ -17,6 +18,8 @@ interface BusinessSearchProps {
 }
 
 export default function BusinessSearch({ onSelect }: BusinessSearchProps) {
+    const { language } = useLanguage();
+    const t = (translations[language] ?? translations['tr']).landing;
     const [query, setQuery] = useState('');
     const [results, setResults] = useState<Place[]>([]);
     const [loading, setLoading] = useState(false);
@@ -55,7 +58,7 @@ export default function BusinessSearch({ onSelect }: BusinessSearchProps) {
                     type="text"
                     value={query}
                     onChange={(e) => setQuery(e.target.value)}
-                    placeholder="İşletme adını girin..."
+                    placeholder={t.search_placeholder}
                     className="w-full h-14 pl-12 pr-[90px] rounded-xl border border-gray-200 shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all text-base"
                 />
                 <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 w-6 h-6" />
@@ -64,7 +67,7 @@ export default function BusinessSearch({ onSelect }: BusinessSearchProps) {
                     disabled={loading}
                     className="absolute right-2 top-2 bottom-2 bg-blue-600 text-white px-6 rounded-lg font-medium hover:bg-blue-700 disabled:opacity-50 transition-colors"
                 >
-                    {loading ? <Loader2 className="w-5 h-5 animate-spin" /> : 'Ara'}
+                    {loading ? <Loader2 className="w-5 h-5 animate-spin" /> : t.search_btn}
                 </button>
             </form>
 

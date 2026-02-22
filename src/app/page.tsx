@@ -65,28 +65,27 @@ export default function Home() {
       <nav className="fixed top-0 left-0 w-full z-50 bg-[#F8FAFC]/90 backdrop-blur-md border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 h-14 sm:h-16 flex items-center justify-between gap-2">
 
-          {/* Logo */}
-          <div className="flex items-center gap-1.5 sm:gap-2 font-bold tracking-tight text-[#0F172A] shrink-0">
-            <div className="w-7 h-7 sm:w-8 sm:h-8 bg-indigo-600 rounded-lg flex items-center justify-center text-white">
+          {/* Logo - text hidden on very small screens to make room for both buttons */}
+          <div className="flex items-center gap-1 sm:gap-2 font-bold tracking-tight text-[#0F172A] shrink-0">
+            <div className="w-7 h-7 sm:w-8 sm:h-8 bg-indigo-600 rounded-lg flex items-center justify-center text-white shrink-0">
               <ShieldCheck className="w-4 h-4 sm:w-5 sm:h-5" />
             </div>
-            <span className="text-base sm:text-xl">ReviewGuard</span>
+            <span className="hidden xs:inline sm:inline text-base sm:text-xl">ReviewGuard</span>
           </div>
 
           {/* Desktop Nav Links */}
           <div className="hidden md:flex gap-6 text-sm font-medium text-slate-600">
-            <a href="#features" className="hover:text-indigo-600 transition">Özellikler</a>
-            <a href="#how-it-works" className="hover:text-indigo-600 transition">Nasıl Çalışır?</a>
-            <a href="#pricing" className="hover:text-indigo-600 transition">Fiyatlandırma</a>
+            <a href="#features" className="hover:text-indigo-600 transition">{t.nav_features}</a>
+            <a href="#how-it-works" className="hover:text-indigo-600 transition">{t.nav_how}</a>
+            <a href="#pricing" className="hover:text-indigo-600 transition">{t.nav_pricing}</a>
           </div>
 
-          {/* Right side */}
-          <div className="flex items-center gap-1.5 sm:gap-3 shrink-0">
+          {/* Right side: always show both login + CTA */}
+          <div className="flex items-center gap-1 sm:gap-3 shrink-0">
             <LanguageSelector />
-            <Link href="/auth" className="hidden sm:block text-sm font-medium text-slate-600 hover:text-[#0F172A] whitespace-nowrap">{t.nav_login}</Link>
-            <Link href="/auth" className="text-xs sm:text-sm font-medium text-white bg-indigo-600 px-2.5 sm:px-4 py-1.5 sm:py-2 rounded-lg hover:bg-indigo-700 transition shadow-sm whitespace-nowrap">
-              <span className="sm:hidden">{t.nav_cta_short}</span>
-              <span className="hidden sm:inline">{t.nav_cta}</span>
+            <Link href="/auth" className="text-xs sm:text-sm font-medium text-slate-600 hover:text-[#0F172A] whitespace-nowrap px-1 sm:px-0">{t.nav_login}</Link>
+            <Link href="/auth" className="text-xs sm:text-sm font-medium text-white bg-indigo-600 px-2 sm:px-4 py-1.5 sm:py-2 rounded-lg hover:bg-indigo-700 transition shadow-sm whitespace-nowrap">
+              {t.nav_cta}
             </Link>
           </div>
 
@@ -190,8 +189,8 @@ export default function Home() {
                       </div>
                       <div className="bg-indigo-50 p-4 rounded-2xl rounded-tr-none w-full border border-indigo-100 shadow-sm">
                         <div className="flex items-center gap-2 mb-2">
-                          <span className="text-xs font-bold text-indigo-700 bg-white px-2 py-0.5 rounded-full border border-indigo-200">AI Yanıtı</span>
-                          <span className="text-xs text-indigo-400">Az önce</span>
+                          <span className="text-xs font-bold text-indigo-700 bg-white px-2 py-0.5 rounded-full border border-indigo-200">{t.hero_ai_label}</span>
+                          <span className="text-xs text-indigo-400">{t.hero_ai_time}</span>
                         </div>
                         <div className="h-2 bg-indigo-200 rounded w-full mb-2"></div>
                         <div className="h-2 bg-indigo-200 rounded w-5/6 mb-2"></div>
@@ -214,8 +213,8 @@ export default function Home() {
                       <TrendingUp className="w-4 h-4" />
                     </div>
                     <div>
-                      <p className="text-xs text-slate-500">SEO Etkisi</p>
-                      <p className="text-sm font-bold text-slate-900">+45% Artış</p>
+                      <p className="text-xs text-slate-500">{t.hero_seo_label}</p>
+                      <p className="text-sm font-bold text-slate-900">{t.hero_seo_value}</p>
                     </div>
                   </div>
                   <div className="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden">
@@ -232,10 +231,9 @@ export default function Home() {
       <section id="features" className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-base font-semibold text-indigo-600 uppercase tracking-wide">Özellikler</h2>
+            <h2 className="text-base font-semibold text-indigo-600 uppercase tracking-wide">{t.features_label}</h2>
             <p className="mt-2 text-3xl font-bold tracking-tight text-[#0F172A] sm:text-4xl">
-              İşletmeniz İçin Tasarlanan <br className="hidden sm:block" />
-              Akıllı Çözümler
+              {t.features_title}
             </p>
           </div>
 
@@ -247,9 +245,9 @@ export default function Home() {
                 <div className="w-12 h-12 bg-white rounded-xl shadow-sm border border-slate-100 flex items-center justify-center text-indigo-600 mb-6">
                   <Zap className="w-6 h-6" />
                 </div>
-                <h3 className="text-xl font-bold text-[#0F172A] mb-3">Otopilot Yanıtlar</h3>
+                <h3 className="text-xl font-bold text-[#0F172A] mb-3">{t.feature1_title}</h3>
                 <p className="text-slate-600 leading-relaxed max-w-md">
-                  Yorumları saniyeler içinde analiz edin ve marka dilinize (%99) uygun, kişiselleştirilmiş yanıtlar oluşturun. Standart &quot;Kopyala-Yapıştır&quot; cevaplara son.
+                  {t.feature1_desc}
                 </p>
               </div>
               {/* Abstract graphic at bottom */}
@@ -267,9 +265,9 @@ export default function Home() {
                   <div className="w-12 h-12 bg-white/10 rounded-xl backdrop-blur-sm flex items-center justify-center text-white mb-6">
                     <TrendingUp className="w-6 h-6" />
                   </div>
-                  <h3 className="text-xl font-bold mb-3">SEO Gücü</h3>
+                  <h3 className="text-xl font-bold mb-3">{t.feature2_title}</h3>
                   <p className="text-slate-300 leading-relaxed text-sm">
-                    Yanıtlara stratejik anahtar kelimeler ekleyerek Google harita sıralamanızı organik olarak yükseltin.
+                    {t.feature2_desc}
                   </p>
                 </div>
                 <div className="mt-8 bg-white/5 rounded-xl p-4 border border-white/10">
@@ -277,7 +275,7 @@ export default function Home() {
                     <div className="w-full bg-indigo-500/50 h-[40%] rounded-t"></div>
                     <div className="w-full bg-indigo-500/70 h-[60%] rounded-t"></div>
                     <div className="w-full bg-indigo-500 h-[85%] rounded-t relative">
-                      <div className="absolute -top-6 left-1/2 -translate-x-1/2 text-xs font-bold text-green-400">+%24</div>
+                      <div className="absolute -top-6 left-1/2 -translate-x-1/2 text-xs font-bold text-green-400">{t.feature2_seo}</div>
                     </div>
                   </div>
                 </div>
@@ -290,9 +288,9 @@ export default function Home() {
                 <div className="w-12 h-12 bg-white rounded-xl shadow-sm border border-slate-100 flex items-center justify-center text-violet-600 mb-6">
                   <Globe className="w-6 h-6" />
                 </div>
-                <h3 className="text-xl font-bold text-[#0F172A] mb-3">Çoklu Dil Desteği</h3>
+                <h3 className="text-xl font-bold text-[#0F172A] mb-3">{t.feature3_title}</h3>
                 <p className="text-slate-600 leading-relaxed">
-                  Turistlerin dilinden konuşun. İngilizce, Arapça, Rusça veya Çince gelen yorumlara, kendi dillerinde mükemmel gramerle yanıt verin.
+                  {t.feature3_desc}
                 </p>
               </div>
               <div className="flex-1 flex flex-wrap gap-3">
@@ -341,11 +339,11 @@ export default function Home() {
       <footer className="bg-slate-900 border-t border-slate-800 py-12">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="text-slate-400 text-sm">
-            &copy; {new Date().getFullYear()} Review Guard. Tüm hakları saklıdır.
+            &copy; {new Date().getFullYear()} Review Guard. {t.footer_rights}
           </div>
           <div className="flex gap-6">
             <Link href="/privacy" className="text-slate-400 hover:text-white transition-colors text-sm">
-              Gizlilik Politikası
+              {t.footer_privacy}
             </Link>
           </div>
         </div>
