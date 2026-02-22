@@ -6,6 +6,8 @@ import BusinessSearch from '@/components/landing/BusinessSearch';
 import AIDemo from '@/components/landing/AIDemo';
 import PricingSection from '@/components/landing/PricingSection';
 import LanguageSelector from '@/components/dashboard/LanguageSelector';
+import { useLanguage } from '@/context/LanguageContext';
+import { translations } from '@/lib/translations';
 import { Review } from '@/types';
 import { Loader2, ShieldCheck, Zap, TrendingUp, Globe, Star } from 'lucide-react';
 
@@ -18,6 +20,8 @@ interface Place {
 }
 
 export default function Home() {
+  const { language } = useLanguage();
+  const t = (translations[language] ?? translations['tr']).landing;
   const [selectedPlace, setSelectedPlace] = useState<Place | null>(null);
   const [reviews, setReviews] = useState<Review[]>([]);
   const [loadingDetails, setLoadingDetails] = useState(false);
@@ -79,10 +83,10 @@ export default function Home() {
           {/* Right side */}
           <div className="flex items-center gap-1.5 sm:gap-3 shrink-0">
             <LanguageSelector />
-            <Link href="/auth" className="hidden sm:block text-sm font-medium text-slate-600 hover:text-[#0F172A] whitespace-nowrap">Giriş Yap</Link>
+            <Link href="/auth" className="hidden sm:block text-sm font-medium text-slate-600 hover:text-[#0F172A] whitespace-nowrap">{t.nav_login}</Link>
             <Link href="/auth" className="text-xs sm:text-sm font-medium text-white bg-indigo-600 px-2.5 sm:px-4 py-1.5 sm:py-2 rounded-lg hover:bg-indigo-700 transition shadow-sm whitespace-nowrap">
-              <span className="sm:hidden">Dene</span>
-              <span className="hidden sm:inline">Ücretsiz Dene</span>
+              <span className="sm:hidden">{t.nav_cta_short}</span>
+              <span className="hidden sm:inline">{t.nav_cta}</span>
             </Link>
           </div>
 
@@ -101,18 +105,18 @@ export default function Home() {
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-indigo-500"></span>
                 </span>
-                Google Maps Uyumlu v1.0
+                {t.hero_badge}
               </div>
 
-              <h1 className="text-5xl lg:text-6xl font-extrabold tracking-tight text-[#0F172A] leading-[1.15] mb-6">
-                İtibarınızı <br />
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-[#0F172A] leading-[1.15] mb-6">
+                {t.hero_title_1} <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-violet-600">
-                  Otopilota Alın
+                  {t.hero_title_2}
                 </span>
               </h1>
 
               <p className="text-lg text-slate-600 mb-8 leading-relaxed max-w-xl">
-                Google işletme yorumlarınıza yapay zeka ile anında, profesyonel ve SEO dostu yanıtlar verin. Müşteri sadakatini artırırken zamandan tasarruf edin.
+                {t.hero_desc}
               </p>
 
               {/* Search Box Container */}
@@ -140,7 +144,7 @@ export default function Home() {
                     <Star className="w-4 h-4 fill-current" />
                     <Star className="w-4 h-4 fill-current" />
                   </div>
-                  <span className="font-medium text-slate-700">100+ İşletme Güveniyor</span>
+                  <span className="font-medium text-slate-700">{t.trust_badge}</span>
                 </div>
               </div>
             </div>
